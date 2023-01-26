@@ -8,6 +8,7 @@ require("dotenv").config();
 require("express-async-errors");
 
 const authRouter = require("./routes/authRoutes");
+const userRouter = require("./routes/userRoutes");
 const cookieParser = require("cookie-parser");
 
 app.use(morgan("tiny"));
@@ -23,6 +24,7 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/users", userRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

@@ -18,11 +18,29 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  res.send("Login Route");
+  const { email, password } = req.body;
+  if (!email || !password) {
+    throw new CustomError.BadRequestError("Please enter email and password");
+  }
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new CustomError.UnauthenticatedError("No user found");
+  }
+  const isAuthorized = await user.comparePassword(password);
+  if (!isAuthorized) {
+    throw new CustomError.UnauthenticatedError("Wrong password");
+  }
+  const tokenUser = { userId: user._id, name: user.name, role: user.role };
+  attachCookiesToResponse(res, tokenUser);
+  res.status(StatusCodes.OK).json({ msg: "Logged In" });
 };
 
 const logout = async (req, res) => {
-  res.send("Logout Route");
+  res.cookie("token", "logout", {
+    httpOnly: true,
+    expires: new Date(Date.now()),
+  });
+  res.status(StatusCodes.OK).json({ msg: "Logged Out" });
 };
 
 module.exports = { register, login, logout };
