@@ -215,44 +215,44 @@
 
 #### Upload Image
 
-- [] if some question, re-watch 07-file-upload
-- [] images folder with two images
+- [x] if some question, re-watch 07-file-upload
+- [x] images folder with two images
 
 #### Review Model
 
-- [] create Review.js in models folder
-- [] create Schema
-- [] rating : {type:Number}
-- [] title: {type:String}
-- [] comment: {type:String}
-- [] user
-- [] product
-- [] set timestamps
-- [] export Review model
+- [x] create Review.js in models folder
+- [x] create Schema
+- [x] rating : {type:Number}
+- [x] title: {type:String}
+- [x] comment: {type:String}
+- [x] user
+- [x] product
+- [x] set timestamps
+- [x] export Review model
 
 #### Review Structure
 
-- [] add reviewController file in controllers
-- [] export (createReview, getAllReviews, getSingleReview, updateReview, deleteReview) functions
-- [] res.send('function name')
-- [] setup reviewRoutes file in routes
-- [] import all controllers
-- [] only getAllReviews and getSingleReview accessible to public
-- [] rest only to users (setup middleware)
-- [] typical REST setup
-- [] import reviewRoutes as reviewRouter in the app.js
-- [] setup app.use('/api/v1/reviews', reviewRouter)
+- [x] add reviewController file in controllers
+- [x] export (createReview, getAllReviews, getSingleReview, updateReview, deleteReview) functions
+- [x] res.send('function name')
+- [x] setup reviewRoutes file in routes
+- [x] import all controllers
+- [x] only getAllReviews and getSingleReview accessible to public
+- [x] rest only to users (setup middleware)
+- [x] typical REST setup
+- [x] import reviewRoutes as reviewRouter in the app.js
+- [x] setup app.use('/api/v1/reviews', reviewRouter)
 
 #### Create Review
 
-- [] check for product in the req.body
-- [] attach user property (set it equal to req.user.userId) on to req.body
-- [] create review
-- [] don't test yet
+- [x] check for product in the req.body
+- [x] attach user property (set it equal to req.user.userId) on to req.body
+- [x] create review
+- [x] don't test yet
 
 #### Get All Reviews and Get Single Review
 
-- [] both public routes, typical setup
+- [x] both public routes, typical setup
 
 #### Delete Review
 
