@@ -46,11 +46,15 @@ const updateReview = async (req, res) => {
     throw new CustomError.NotFoundError(`No review found with ID ${reviewId}`);
   }
   const { title, comment, rating } = req.body;
-  const updatedReview = await review.updateOne(
-    { title, comment, rating },
-    { new: true, runValidators: true }
-  );
-  res.status(StatusCodes.OK).json({ updatedReview });
+  // const updatedReview = await review.updateOne(
+  //   { title, comment, rating },
+  //   { new: true, runValidators: true }
+  // );
+  review.rating = rating;
+  review.title = title;
+  review.comment = comment;
+  await review.save();
+  res.status(StatusCodes.OK).json({ review });
 };
 
 const deleteReview = async (req, res) => {
@@ -60,7 +64,8 @@ const deleteReview = async (req, res) => {
   if (!review) {
     throw new CustomError.NotFoundError(`No review found with ID ${reviewId}`);
   }
-  await review.deleteOne();
+  // await review.deleteOne();
+  await review.remove();
   res.status(StatusCodes.OK).json({ msg: `Review deleted successfully` });
 };
 
