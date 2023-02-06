@@ -26,7 +26,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 app.use(
   rateLimiter({
     windowMs: 15 * 60 * 1000,
-    max: 10,
+    max: 500,
   })
 );
 app.use(helmet());
