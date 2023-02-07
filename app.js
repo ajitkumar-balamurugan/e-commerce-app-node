@@ -42,9 +42,11 @@ app.use(fileUpload());
 
 //DEVELOPMENT CODE
 // app.use(morgan("tiny"));
-// app.get("/", (req, res) => {
-//   res.send(`Ecommerce APP`);
-// });
+app.get("/", (req, res) => {
+  res.send(
+    `<h1>E-Commerce App Node</h1><a href="https://documenter.getpostman.com/view/25698671/2s935poNTy">Postman Documentation</a>`
+  );
+});
 // app.get("/api/v1", (req, res) => {
 //   // console.log(req.cookies);
 //   console.log(req.signedCookies);
